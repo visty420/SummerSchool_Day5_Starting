@@ -1,5 +1,5 @@
-//#include "pch.h"
-//#include "AudioDevices.h"
+#include "pch.h"
+#include "AudioDevices.h"
 //#include "Utils.h"
 //
 //namespace AudioEngineWrapper
