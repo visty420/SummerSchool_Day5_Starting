@@ -28,21 +28,11 @@ public sealed class ServiceCollection
         return this;
     }
 
-    public T CreateService<T>()
-    {
-        Type serviceType = typeof(T);
-        return (T)CreateService(serviceType);
-    }
+    public T CreateService<T>() => (T)CreateService(typeof(T));
 
-    public object GetService(Type type)
-    {
-        return _services[type].Invoke();
-    }
+    public object GetService(Type type) => _services[type].Invoke();
 
-    public T GetService<T>()
-    {
-        return (T)_services[typeof(T)].Invoke();
-    }
+    public T GetService<T>() => (T)GetService(typeof(T));
 
     public object CreateService(Type serviceType)
     {
@@ -56,13 +46,10 @@ public sealed class ServiceCollection
 
         for (int i = 0; i < parameters.Length; i++)
         {
-            object? instance = null;
             if (_services.TryGetValue(parameters[i].ParameterType, out var creator))
             {
-                instance = creator();
+                arguments[i] = creator();
             }
-
-            arguments[i] = instance!;
         }
 
         return Activator.CreateInstance(serviceType, arguments)!;

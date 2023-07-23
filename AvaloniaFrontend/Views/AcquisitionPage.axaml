@@ -18,36 +18,36 @@
 		</vm:AcquisitionViewModel>
 	</Design.DataContext>
 	<Grid RowDefinitions="1*, 4*, 4*">
-			<Grid ColumnDefinitions="*, *, *" Margin="10">
-				<Button Command="{Binding StartCommand}"
+		<Grid ColumnDefinitions="*, *, *" Margin="10">
+			<Button Command="{Binding StartCommand}"
+				HorizontalAlignment="Stretch"
+				HorizontalContentAlignment="Center"
+				Margin="5 0">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+					<icons:MaterialIcon Kind="Play"></icons:MaterialIcon>
+					<TextBlock>Start</TextBlock>
+				</StackPanel>
+			</Button>
+			<Button Command="{Binding StopCommand}"
 					HorizontalAlignment="Stretch"
 					HorizontalContentAlignment="Center"
+					Grid.Column="1"
 					Margin="5 0">
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
-						<icons:MaterialIcon Kind="Play"></icons:MaterialIcon>
-						<TextBlock>Start</TextBlock>
-					</StackPanel>
-				</Button>
-				<Button Command="{Binding StopCommand}"
-						HorizontalAlignment="Stretch"
-						HorizontalContentAlignment="Center"
-						Grid.Column="1"
-						Margin="5 0">
-					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
-						<icons:MaterialIcon Kind="Stop" VerticalAlignment="Center"></icons:MaterialIcon>
-						<TextBlock VerticalAlignment="Center">Stop</TextBlock>
-					</StackPanel>
-				</Button>
-			<ComboBox SelectedItem="{Binding SelectedStrategy}" 
-					  Items="{Binding AudioStreategyTypes}" 
-					  Grid.Column="2" 
-					  Margin="5 0" 
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+					<icons:MaterialIcon Kind="Stop" VerticalAlignment="Center"></icons:MaterialIcon>
+					<TextBlock VerticalAlignment="Center">Stop</TextBlock>
+				</StackPanel>
+			</Button>
+			<ComboBox SelectedItem="{Binding SelectedStrategy}"
+					  Items="{Binding AudioStrategyTypes}"
+					  Grid.Column="2"
+					  Margin="5 0"
 					  VerticalAlignment="Center"
 					  HorizontalAlignment="Stretch"
 					  IsEnabled="{Binding !CanAcquire}">
-				
+
 			</ComboBox>
-			</Grid>
+		</Grid>
 
 		<views:PlotView DataContext="{Binding TimePlot}" Grid.Row="1"></views:PlotView>
 		<views:PlotView DataContext="{Binding FFTPlot}" Grid.Row="2"></views:PlotView>

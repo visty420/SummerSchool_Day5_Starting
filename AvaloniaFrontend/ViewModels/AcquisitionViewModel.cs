@@ -23,7 +23,7 @@ public sealed partial class AcquisitionViewModel : ObservableObject
     }
 
 
-    public List<AudioStreategyType> AudioStreategyTypes { get; } = Enum.GetValues<AudioStreategyType>().ToList();
+    public List<AudioStreategyType> AudioStrategyTypes { get; } = Enum.GetValues<AudioStreategyType>().ToList();
     public PlotViewModel TimePlot { get; } = new() { Title = "Time plot" };
     public PlotViewModel FFTPlot { get; } = new() { Title = "FFT plot" };
     public NavigationService NavigationService { get; }

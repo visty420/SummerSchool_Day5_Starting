@@ -20,6 +20,8 @@ public partial class PlotView : UserControl
             plotVM.OnPlotChanged += PlotVM_OnPlotChanged;
 
             Plot.Plot.Title(plotVM.Title);
+
+            Plot.Plot.YAxis.TickLabelFormat("F4", false);
         }
     }
 

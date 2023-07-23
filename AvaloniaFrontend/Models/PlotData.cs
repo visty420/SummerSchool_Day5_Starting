@@ -2,6 +2,6 @@
 
 public class PlotData
 {
-    public double[]? YAxis { get; init; }
-    public double SampleRate { get; init; }
+    public required double[] YAxis { get; init; }
+    public required double SampleRate { get; init; }
 }
