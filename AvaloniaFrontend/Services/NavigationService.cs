@@ -17,7 +17,7 @@ public sealed partial class NavigationService : ObservableObject
 
         set
         {
-            if (value is null || value == _currentPageType)
+            if (value is null)
             {
                 return;
             }

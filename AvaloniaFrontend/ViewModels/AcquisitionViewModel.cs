@@ -52,7 +52,7 @@ public sealed partial class AcquisitionViewModel : ObservableObject
                 YAxis = buffer
             });
 
-            var fft = new FftProcessor().GetMagnitude(_audioEngineService);
+            var fft = FftProcessor.GetMagnitude(_audioEngineService);
 
             FFTPlot.UpdatePlot(new Models.PlotData()
             {

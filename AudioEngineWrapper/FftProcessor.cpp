@@ -6,7 +6,7 @@
 
 array<double>^ AudioEngineWrapper::FftProcessor::GetMagnitude(SignalGenerator^ generator)
 {
-    const auto data = generator->GetBuffer();
+    const auto& data = generator->GetBuffer();
     const char* error;
 
     array<double>^ result = gcnew array<double>(data.size() / 2);
@@ -20,7 +20,7 @@ array<double>^ AudioEngineWrapper::FftProcessor::GetMagnitude(SignalGenerator^ g
 
 array<double>^ AudioEngineWrapper::FftProcessor::GetMagnitude(AudioEngineService^ engine)
 {
-    const auto data = engine->GetLastBuffer();
+    const auto& data = engine->GetLastBuffer();
     const char* error;
 
     array<double>^ result = gcnew array<double>(data.size() / 2);

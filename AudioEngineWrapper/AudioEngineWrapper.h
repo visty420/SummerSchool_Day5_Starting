@@ -3,6 +3,7 @@
 using namespace System;
 
 #include "../AudioEngine/AudioEngine.h"
+#include "AudioDevices.h"
 
 namespace AudioEngineWrapper
 {
@@ -31,7 +32,7 @@ namespace AudioEngineWrapper
 		array<double>^ GetBuffer();
 
 	internal:
-		std::vector<float> GetLastBuffer();
+		const std::vector<float>& GetLastBuffer();
 
 	private:
 		AudioEngine::FancyAudioEngine* engine;

@@ -4,7 +4,7 @@
 
 namespace AudioEngineWrapper
 {
-    SignalGenerator::SignalGenerator(double time, unsigned int sampleRate, double freq) 
+    SignalGenerator::SignalGenerator(double time, unsigned int sampleRate, double freq)
         : m_generator(new AudioEngine::SignalGenerator(time, sampleRate, freq))
     {
 
@@ -14,7 +14,7 @@ namespace AudioEngineWrapper
     {
         try
         {
-            auto buffer = m_generator->CreateSignal((AudioEngine::SignalType)type);
+            const auto& buffer = m_generator->CreateSignal((AudioEngine::SignalType)type);
             return Utils::ConvertToMananged(buffer, buffer.size());
         }
         catch (const std::exception& e)
@@ -31,15 +31,12 @@ namespace AudioEngineWrapper
 
     SignalGenerator::!SignalGenerator()
     {
-        if (m_generator != nullptr)
-        {
-            delete m_generator;
-        }
+        this->~SignalGenerator();
     }
 
     std::vector<double> SignalGenerator::GetBuffer()
     {
-      return m_generator->GetLastBuffer();
+        return m_generator->GetLastBuffer();
     }
 
     int SignalGenerator::SampleRate::get()

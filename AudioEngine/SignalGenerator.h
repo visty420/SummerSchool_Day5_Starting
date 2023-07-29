@@ -11,6 +11,7 @@ namespace AudioEngine
 		Dirac,
 		Square,
 		Sum,
+		SquareWithSums
 	};
 
 	class AUDIOENGINE_API SignalGenerator
@@ -18,18 +19,18 @@ namespace AudioEngine
 	public:
 		SignalGenerator(double time, size_t sampleRate, double freq);
 
-		std::vector<double> CreateSignal(const SignalType type);
+		const std::vector<double>& CreateSignal(const SignalType type);
 
 		const std::vector<double>& GetLastBuffer() const noexcept;
 
 		size_t GetSampleRate() const noexcept;
 
 	private:
-		std::vector<double> CreateSin();
-		std::vector<double> CreateDirac();
-		std::vector<double> CreateSquare();
-		std::vector<double> CreateSum();
-		std::vector<double> CreateSumFiltered();
+		const std::vector<double>& CreateSin();
+		const std::vector<double>& CreateDirac();
+		const std::vector<double>& CreateSquare();
+		const std::vector<double>& CreateSum();
+		const std::vector<double>& CreateSquareWithSums();
 
 		const size_t m_size;
 		const size_t m_sampleRate;

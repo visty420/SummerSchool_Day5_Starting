@@ -48,10 +48,7 @@ AudioEngineWrapper::AudioEngineService::~AudioEngineService()
 
 AudioEngineWrapper::AudioEngineService::!AudioEngineService()
 {
-	if (engine != nullptr)
-	{
-		delete engine;
-	}
+	this->~AudioEngineService();
 }
 
 array<double>^ AudioEngineWrapper::AudioEngineService::GetBuffer()
@@ -60,7 +57,7 @@ array<double>^ AudioEngineWrapper::AudioEngineService::GetBuffer()
 	return Utils::ConvertToMananged<float, double>(buffer, buffer.size());
 }
 
-std::vector<float> AudioEngineWrapper::AudioEngineService::GetLastBuffer()
+const std::vector<float>& AudioEngineWrapper::AudioEngineService::GetLastBuffer()
 {
 	return engine->GetBufferData();
 }

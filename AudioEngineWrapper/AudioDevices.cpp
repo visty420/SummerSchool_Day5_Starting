@@ -17,10 +17,7 @@
 //
 //    AudioDevices::!AudioDevices()
 //    {
-//        if (m_devices != nullptr)
-//        {
-//            delete m_devices;
-//        }
+//        this->~AudioDevices();
 //    }
 //
 //    array<DeviceData^>^ AudioDevices::GetPlaybackDevices()

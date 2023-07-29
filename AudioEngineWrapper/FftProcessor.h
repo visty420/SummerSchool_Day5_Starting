@@ -5,13 +5,13 @@
 
 namespace AudioEngineWrapper
 {
-  public ref class FftProcessor
-  {
-  public:
+    public ref class FftProcessor
+    {
+    public:
 
-    array<double>^ GetMagnitude(SignalGenerator^ generator);
+        static array<double>^ GetMagnitude(SignalGenerator^ generator);
 
-    array<double>^ GetMagnitude(AudioEngineService^ engine);
-  };
+        static array<double>^ GetMagnitude(AudioEngineService^ engine);
+    };
 }
 

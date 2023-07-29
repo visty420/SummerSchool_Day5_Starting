@@ -45,7 +45,7 @@ public sealed partial class GeneratorViewModel : ObservableObject
         using var generator = new SignalGenerator(Time, SampleRate, Freq);
         var signal = generator.Generate(CurrentOption);
 
-        double[] fft = new FftProcessor().GetMagnitude(generator);
+        double[] fft = FftProcessor.GetMagnitude(generator);
 
         TimePlot.UpdatePlot(new PlotData()
         {
