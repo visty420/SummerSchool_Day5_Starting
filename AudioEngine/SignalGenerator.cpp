@@ -78,8 +78,11 @@ namespace AudioEngine
 
         for (size_t i = 0; i < m_size; i++)
         {
-            m_buffer[i] = (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * m_freq) * 100) +
-                (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * m_freq * 100) * 50);
+            m_buffer[i] =
+                (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * 10) * 100) +
+                (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * 100) * 120) +
+                (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * 300) * 130) +
+                (std::sin(((double)i / m_sampleRate) * 2 * std::numbers::pi * 400) * 140);
         }
 
         return m_buffer;
