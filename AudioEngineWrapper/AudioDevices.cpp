@@ -11,12 +11,13 @@
 //
 //    AudioDevices::~AudioDevices()
 //    {
-//        delete m_devices;
-//        m_devices = nullptr;
+//        this->!AudioDevices();
 //    }
 //
 //    AudioDevices::!AudioDevices()
 //    {
+//        delete m_devices;
+//        m_devices = nullptr;
 //        this->~AudioDevices();
 //    }
 //

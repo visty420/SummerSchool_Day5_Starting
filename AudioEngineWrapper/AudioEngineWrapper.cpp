@@ -42,13 +42,13 @@ void AudioEngineWrapper::AudioEngineService::ClearData()
 
 AudioEngineWrapper::AudioEngineService::~AudioEngineService()
 {
-	delete engine;
-	engine = nullptr;
+	this->!AudioEngineService();
 }
 
 AudioEngineWrapper::AudioEngineService::!AudioEngineService()
 {
-	this->~AudioEngineService();
+	delete engine;
+	engine = nullptr;
 }
 
 array<double>^ AudioEngineWrapper::AudioEngineService::GetBuffer()

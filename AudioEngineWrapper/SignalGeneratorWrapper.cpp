@@ -25,13 +25,13 @@ namespace AudioEngineWrapper
 
     SignalGenerator::~SignalGenerator()
     {
-        delete m_generator;
-        m_generator = nullptr;
+        this->!SignalGenerator();
     }
 
     SignalGenerator::!SignalGenerator()
     {
-        this->~SignalGenerator();
+        delete m_generator;
+        m_generator = nullptr;
     }
 
     std::vector<double> SignalGenerator::GetBuffer()
