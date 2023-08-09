@@ -10,8 +10,8 @@
 		xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaFrontend.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="AvaloniaFrontend"
+        Icon="/Assets/logo.ico"
+        Title="SoundLab"
 		x:Name="MainWindowControl"
 		x:DataType="vm:MainWindowViewModel"
 		x:CompileBindings="True">
