@@ -10,7 +10,8 @@ namespace AudioEngineWrapper
 		Dirac,
 		Square,
 		Sum,
-		SquareWithSums
+		SquareWithSums,
+		SumFiltered
 	};
 
 	public ref class SignalGenerator

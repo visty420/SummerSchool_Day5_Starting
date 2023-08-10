@@ -11,7 +11,8 @@ namespace AudioEngine
 		Dirac,
 		Square,
 		Sum,
-		SquareWithSums
+		SquareWithSums,
+		SumFiltered
 	};
 
 	class AUDIOENGINE_API SignalGenerator
@@ -23,6 +24,8 @@ namespace AudioEngine
 
 		const std::vector<double>& GetLastBuffer() const noexcept;
 
+
+
 		size_t GetSampleRate() const noexcept;
 
 	private:
@@ -31,6 +34,7 @@ namespace AudioEngine
 		const std::vector<double>& CreateSquare();
 		const std::vector<double>& CreateSum();
 		const std::vector<double>& CreateSquareWithSums();
+		const std::vector<double>& CreateSumFiltered();
 
 		const size_t m_size;
 		const size_t m_sampleRate;

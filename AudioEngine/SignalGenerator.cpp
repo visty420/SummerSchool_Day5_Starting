@@ -1,6 +1,7 @@
 #include "SignalGenerator.h"
 #include <numbers>
 #include <cmath>
+#include "DigitalFilters.h"
 
 namespace AudioEngine
 {
@@ -24,6 +25,8 @@ namespace AudioEngine
             return CreateSum();
         case SignalType::SquareWithSums:
             return CreateSquareWithSums();
+        case SignalType::SumFiltered:
+            return CreateSumFiltered();
         default:
             throw std::exception("unknown type");
         }
@@ -103,6 +106,20 @@ namespace AudioEngine
             }
         }
 
+        return m_buffer;
+    }
+    const std::vector<double>& SignalGenerator::CreateSumFiltered()
+    {
+        CreateSum();
+
+        const int kcut = 100;
+        HighPassFilter filter(1./ m_sampleRate, 2 * std::numbers::pi * kcut);
+            
+
+        for (size_t bufferIndex = 0; bufferIndex < m_buffer.size(); bufferIndex++)
+        {
+            m_buffer[bufferIndex] = filter.update(m_buffer[bufferIndex]);
+        }
         return m_buffer;
     }
 }
