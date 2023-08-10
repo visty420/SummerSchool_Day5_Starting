@@ -24,7 +24,7 @@ namespace AudioEngine
 		_instance = this;
 	}
 
-	void FancyAudioEngine::Start(AudioStreategyType type)
+	void FancyAudioEngine::Start(const ma_device_id* playback, const ma_device_id* capture,const std::string& audioFilePath, AudioStreategyType type )
 	{
 		switch (type)
 		{
@@ -48,7 +48,7 @@ namespace AudioEngine
 			break;
 		}
 
-		AudioParameters params = { nullptr, nullptr, ma_format_f32, m_sampleRate, 1, data_callback };
+		AudioParameters params = { playback, capture, ma_format_f32, m_sampleRate, 1, data_callback , audioFilePath};
 
 		m_buffers.clear();
 

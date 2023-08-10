@@ -15,6 +15,7 @@
 		<vm:ConfigViewModel>
 			<x:Arguments>
 				<services:SelectedDevices/>
+				<x:Null></x:Null>
 			</x:Arguments>
 		</vm:ConfigViewModel>
 	</Design.DataContext>
@@ -38,5 +39,13 @@
 		<ListBox Items="{Binding SelectedDevices.PlaybackDevices}" SelectedItem="{Binding SelectedDevices.SelectedPlayback}">
 		</ListBox>
 
+		<TextBox Watermark="Choose file" Text="{Binding SelectedDevices.FilePath}">
+			<TextBox.InnerRightContent>
+				<Button Command="{Binding ShowFilePickerCommand}">
+					<icons:MaterialIcon Kind="File"></icons:MaterialIcon>
+				</Button>
+			</TextBox.InnerRightContent>
+		</TextBox>
+		
 	</StackPanel>
 </UserControl>

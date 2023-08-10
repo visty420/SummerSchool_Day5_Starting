@@ -18,17 +18,18 @@ AudioEngineWrapper::AudioEngineService::AudioEngineService(size_t sampleRate, si
 	}
 }
 
-void AudioEngineWrapper::AudioEngineService::Start(AudioStreategyType type)
+void AudioEngineWrapper::AudioEngineService::Start(const DeviceData^ playback, const DeviceData^ capture,String^ audioFilePath, AudioStreategyType type)
 {
 	try
 	{
-		engine->Start((AudioEngine::AudioStreategyType)type);
+		engine->Start(&playback->info->id, &capture->info->id,Utils::ConvertToStdString(audioFilePath), (AudioEngine::AudioStreategyType)type);
 	}
 	catch (const std::exception& e)
 	{
 		throw gcnew System::Exception(gcnew System::String(e.what()));
 	}
 }
+
 
 void AudioEngineWrapper::AudioEngineService::Stop()
 {

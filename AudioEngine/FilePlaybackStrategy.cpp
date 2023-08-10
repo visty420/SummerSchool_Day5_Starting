@@ -10,14 +10,14 @@ bool AudioEngine::FilePlaybackStrategy::Init(const AudioParameters& params)
     m_device = std::make_unique<ma_device>();
     m_decoder = std::make_unique<ma_decoder>();
 
-    if (std::filesystem::exists("./output.wav") == false)
+    if (std::filesystem::exists(params.audioFilePath.c_str()) == false)
     {
         return false;
     }
 
     decoderConfig = ma_decoder_config_init(params.format, params.channels, params.sampleRate);
 
-    result = ma_decoder_init_file("./output.wav", &decoderConfig, m_decoder.get());
+    result = ma_decoder_init_file(params.audioFilePath.c_str(), &decoderConfig, m_decoder.get());
 
     if (result != MA_SUCCESS)
     {

@@ -17,7 +17,7 @@ namespace AudioEngine
 
         encoderConfig = ma_encoder_config_init(ma_encoding_format_wav, params.format, params.channels, params.sampleRate);
 
-        if (ma_encoder_init_file("./output.wav", &encoderConfig, m_encoder.get()) != MA_SUCCESS)
+        if (ma_encoder_init_file(params.audioFilePath.c_str(), &encoderConfig, m_encoder.get()) != MA_SUCCESS)
         {
             return false;
         }

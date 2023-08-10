@@ -14,10 +14,13 @@ public partial class SelectedDevices : ObservableObject
 
         SelectedPlayback = PlaybackDevices.First(x => x.IsDefault);
         SelectedCapture = CaptureDevices.First(x => x.IsDefault);
+
+        _filePath = Path.GetFullPath("./output.wav");
     }
     public DeviceData[] CaptureDevices { get; }
     public DeviceData[] PlaybackDevices { get; }
 
     [ObservableProperty] private DeviceData _selectedPlayback;
     [ObservableProperty] private DeviceData _selectedCapture;
+    [ObservableProperty] private string _filePath;
 }

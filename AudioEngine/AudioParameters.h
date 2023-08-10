@@ -12,5 +12,6 @@ namespace AudioEngine
 		const ma_uint32 sampleRate;
 		const ma_uint32 channels;
 		const ma_device_data_proc data_callback;
+		const std::string audioFilePath;
 	};
 }

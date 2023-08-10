@@ -9,8 +9,8 @@ namespace AudioEngine
 	{
 	public:
 		AudioDevices();
-		std::vector<ma_device_info> GetPlaybackDevices() const;
-		std::vector<ma_device_info> GetCaptureDevices() const;
+		const std::vector<ma_device_info>& GetPlaybackDevices() const;
+		const std::vector<ma_device_info>& GetCaptureDevices() const;
 		~AudioDevices();
 
 	private:

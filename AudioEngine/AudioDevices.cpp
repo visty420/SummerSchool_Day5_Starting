@@ -30,12 +30,12 @@ AudioEngine::AudioDevices::AudioDevices()
 
 }
 
-std::vector<ma_device_info> AudioEngine::AudioDevices::GetPlaybackDevices() const
+const std::vector<ma_device_info>& AudioEngine::AudioDevices::GetPlaybackDevices() const
 {
     return m_playbackDeviceInfos;
 }
 
-std::vector<ma_device_info> AudioEngine::AudioDevices::GetCaptureDevices() const
+const std::vector<ma_device_info>& AudioEngine::AudioDevices::GetCaptureDevices() const
 {
     return m_captureDeviceInfos;
 }

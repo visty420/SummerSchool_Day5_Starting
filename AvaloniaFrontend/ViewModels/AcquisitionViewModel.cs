@@ -10,16 +10,17 @@ public sealed partial class AcquisitionViewModel : ObservableObject
     private const int _sampleRate = 40960;
 
     private readonly AudioEngineService _audioEngineService = new(_sampleRate, _sampleRate / 5);
-
+    private readonly SelectedDevices selectedDevice;
     [ObservableProperty, NotifyCanExecuteChangedFor(nameof(StopCommand))]
     private bool _canAcquire = false;
 
     [ObservableProperty]
     private AudioStreategyType _selectedStrategy;
 
-    public AcquisitionViewModel(NavigationService navigationService)
+    public AcquisitionViewModel(NavigationService navigationService, SelectedDevices selectedDevice)
     {
         NavigationService = navigationService;
+        this.selectedDevice = selectedDevice;
     }
 
 
@@ -34,7 +35,7 @@ public sealed partial class AcquisitionViewModel : ObservableObject
     public async Task Start()
     {
         CanAcquire = true;
-        _audioEngineService.Start(SelectedStrategy);
+        _audioEngineService.Start(selectedDevice.SelectedPlayback, selectedDevice.SelectedCapture,selectedDevice.FilePath,_selectedStrategy);
 
         NavigationService.IsNavigationAllowed = false;
 

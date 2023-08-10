@@ -23,8 +23,7 @@ namespace AudioEngineWrapper
 	public:
 		AudioEngineService(size_t sampleRate, size_t maxBufferSize);
 
-		void Start(AudioStreategyType type);
-
+		void Start(const DeviceData^ playback, const DeviceData^ capture,String^ audioFilePath, AudioStreategyType type);
 		void Stop();
 
 		void ClearData();
