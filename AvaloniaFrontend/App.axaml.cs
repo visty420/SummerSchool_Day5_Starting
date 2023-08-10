@@ -33,10 +33,14 @@ public partial class App : Application
 
         serviceCollection.AddSingleton<SelectedDevices>();
 
+        serviceCollection.AddSingleton<ConfigPage>();
+        serviceCollection.AddSingleton<ConfigViewModel>();
+
         PageService pageService = serviceCollection.GetService<PageService>();
         pageService.RegisterPage<GeneratorPage, GeneratorViewModel>("Generator", Material.Icons.MaterialIconKind.SineWave.ToString());
         pageService.RegisterPage<AcquisitionPage, AcquisitionViewModel>("Acquisition", Material.Icons.MaterialIconKind.Waveform.ToString());
         pageService.RegisterPage<HomePage, HomeViewModel>("Home", Material.Icons.MaterialIconKind.Home.ToString(), showSidePanel: false);
+        pageService.RegisterPage<ConfigPage, ConfigViewModel>("Config page", Material.Icons.MaterialIconKind.Settings.ToString());
 
         NavigationService navigationService = serviceCollection.GetService<NavigationService>();
         navigationService.CurrentPageType = typeof(HomePage);
