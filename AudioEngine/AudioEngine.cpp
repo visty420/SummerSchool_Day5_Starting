@@ -6,6 +6,8 @@
 #include "LoopbackStrategy.h"
 #include "FilePlaybackStrategy.h"
 #include "SinWaveStrategy.h"
+#include "DuplexFilteredStrategy.h"
+#include "LoopbackFilteredStrategy.h"
 
 namespace AudioEngine
 {
@@ -38,6 +40,10 @@ namespace AudioEngine
 		case AudioEngine::AudioStreategyType::SinWave:
 			m_strategy.reset(new SinWaveStrategy());
 			break;
+		case AudioEngine::AudioStreategyType::DuplexFilteredStrategy:
+			m_strategy.reset(new DuplexFilteredStrategy);
+		case AudioEngine::AudioStreategyType::LoopbackFilteredStrategy:
+			m_strategy.reset(new LoopbackFilteredStrategy());
 		default:
 			break;
 		}

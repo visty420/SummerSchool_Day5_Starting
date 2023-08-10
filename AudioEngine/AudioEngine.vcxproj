@@ -152,6 +152,7 @@
     <ClInclude Include="AudioParameters.h" />
     <ClInclude Include="CircularDelay.hpp" />
     <ClInclude Include="DigitalFilters.h" />
+    <ClInclude Include="DuplexFilteredStrategy.h" />
     <ClInclude Include="DuplexStrategy.h" />
     <ClInclude Include="fft.hpp" />
     <ClInclude Include="FFTProcessor.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="IAudioStrategy.h" />
     <ClInclude Include="ImportExport.h" />
+    <ClInclude Include="LoopbackFilteredStrategy.h" />
     <ClInclude Include="LoopbackStrategy.h" />
     <ClInclude Include="miniaudio.h" />
     <ClInclude Include="pch.h" />
@@ -169,9 +171,11 @@
     <ClCompile Include="AudioEngine.cpp" />
     <ClCompile Include="AudioLock.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="DuplexFilteredStrategy.cpp" />
     <ClCompile Include="DuplexStrategy.cpp" />
     <ClCompile Include="FFTProcessor.cpp" />
     <ClCompile Include="FilePlaybackStrategy.cpp" />
+    <ClCompile Include="LoopbackFilteredStrategy.cpp" />
     <ClCompile Include="LoopbackStrategy.cpp" />
     <ClCompile Include="miniaudio.c" />
     <ClCompile Include="pch.cpp">

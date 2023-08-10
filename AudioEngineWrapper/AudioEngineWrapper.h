@@ -5,6 +5,7 @@ using namespace System;
 #include "../AudioEngine/AudioEngine.h"
 #include "AudioDevices.h"
 
+
 namespace AudioEngineWrapper
 {
 	public enum class AudioStreategyType
@@ -13,6 +14,8 @@ namespace AudioEngineWrapper
 		Loopback,
 		FilePlayback,
 		SinWave,
+		FilteredDuplexStrategy,
+		LoopbackFilteredStrategy
 	};
 
 	public ref class AudioEngineService

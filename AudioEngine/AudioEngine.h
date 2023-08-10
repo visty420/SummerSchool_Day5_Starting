@@ -15,6 +15,8 @@ namespace AudioEngine
 		Loopback,
 		FilePlayback,
 		SinWave,
+		DuplexFilteredStrategy,
+		LoopbackFilteredStrategy
 	};
 
 	class AUDIOENGINE_API FancyAudioEngine
