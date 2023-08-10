@@ -31,6 +31,8 @@ public partial class App : Application
         serviceCollection.AddScope<AcquisitionViewModel>();
         serviceCollection.AddScope<AcquisitionPage>();
 
+        serviceCollection.AddSingleton<SelectedDevices>();
+
         PageService pageService = serviceCollection.GetService<PageService>();
         pageService.RegisterPage<GeneratorPage, GeneratorViewModel>("Generator", Material.Icons.MaterialIconKind.SineWave.ToString());
         pageService.RegisterPage<AcquisitionPage, AcquisitionViewModel>("Acquisition", Material.Icons.MaterialIconKind.Waveform.ToString());
@@ -38,6 +40,7 @@ public partial class App : Application
 
         NavigationService navigationService = serviceCollection.GetService<NavigationService>();
         navigationService.CurrentPageType = typeof(HomePage);
+        
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
